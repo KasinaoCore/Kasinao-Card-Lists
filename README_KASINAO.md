@@ -1,0 +1,1 @@
+O único método que consegui encontrar para fazer o Kasinao atualizar automaticamente, é fazendo o Edopro baixar direto do Github para a pasta Iflists. Se você souber de uma maneira melhor de fazer isso, me avise!
