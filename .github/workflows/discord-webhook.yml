@@ -1,0 +1,19 @@
+name: Send Commit Messages to Discord
+
+on:
+  push:
+    paths:
+      - "Kasinao.lflist.conf"  # Specify the file you want to monitor
+
+jobs:
+  send-to-discord:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send commit message to Discord
+      env:
+        DISCORD_WEBHOOK_URL: ${{ secrets.UPDATE_MESSAGE }}
+      run: |
+        curl -H "Content-Type: application/json" \
+        -X POST \
+        -d "{\"content\": \"New commit pushed to Kasinao.lflist.conf: ${{ github.event.head_commit.message }}\"}" \
+        $DISCORD_WEBHOOK_URL
